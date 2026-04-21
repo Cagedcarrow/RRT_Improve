@@ -1,0 +1,20 @@
+{
+  "planner": {
+    "step_size": 0.08,
+    "max_iters": 900,
+    "goal_bias": 0.08,
+    "bridge_bias": 0.20,
+    "cuda_enabled": true,
+    "goal_tolerance": 0.09,
+    "rewire_radius": 0.22,
+    "bridge_num_samples": 220,
+    "bridge_delta": 0.05,
+    "bridge_cluster_eps": 0.10,
+    "bridge_cluster_min_pts": 3,
+    "alpha_schedule": [[0.0, 0.0], [0.3, 0.2], [0.6, 0.5], [1.0, 1.0]]
+  },
+  "benchmark": {
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "timeout_sec": 4
+  }
+}

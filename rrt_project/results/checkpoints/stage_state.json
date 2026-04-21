@@ -1,0 +1,130 @@
+{
+  "completed_stages": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5_R1",
+    "M5_R2"
+  ],
+  "tuning_history": [
+    {
+      "round": 1,
+      "changes": {
+        "no_change": 1.0
+      },
+      "config_after": {
+        "step_size": 0.08,
+        "max_iters": 900,
+        "goal_bias": 0.08,
+        "bridge_bias": 0.2,
+        "cuda_enabled": true,
+        "alpha_schedule": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.3,
+            0.2
+          ],
+          [
+            0.6,
+            0.5
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "seed": 0,
+        "goal_tolerance": 0.09,
+        "rewire_radius": 0.22,
+        "max_time_sec": 4.0,
+        "bridge_num_samples": 220,
+        "bridge_delta": 0.05,
+        "bridge_cluster_eps": 0.1,
+        "bridge_cluster_min_pts": 3,
+        "enable_cci": true,
+        "enable_bridge": true
+      }
+    },
+    {
+      "round": 2,
+      "changes": {
+        "no_change": 1.0
+      },
+      "config_after": {
+        "step_size": 0.08,
+        "max_iters": 900,
+        "goal_bias": 0.08,
+        "bridge_bias": 0.2,
+        "cuda_enabled": true,
+        "alpha_schedule": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.3,
+            0.2
+          ],
+          [
+            0.6,
+            0.5
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "seed": 0,
+        "goal_tolerance": 0.09,
+        "rewire_radius": 0.22,
+        "max_time_sec": 4.0,
+        "bridge_num_samples": 220,
+        "bridge_delta": 0.05,
+        "bridge_cluster_eps": 0.1,
+        "bridge_cluster_min_pts": 3,
+        "enable_cci": true,
+        "enable_bridge": true
+      }
+    }
+  ],
+  "current_config": {
+    "step_size": 0.08,
+    "max_iters": 900,
+    "goal_bias": 0.08,
+    "bridge_bias": 0.2,
+    "cuda_enabled": true,
+    "alpha_schedule": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.3,
+        0.2
+      ],
+      [
+        0.6,
+        0.5
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "seed": 0,
+    "goal_tolerance": 0.09,
+    "rewire_radius": 0.22,
+    "max_time_sec": 4.0,
+    "bridge_num_samples": 220,
+    "bridge_delta": 0.05,
+    "bridge_cluster_eps": 0.1,
+    "bridge_cluster_min_pts": 3,
+    "enable_cci": true,
+    "enable_bridge": true
+  },
+  "last_updated": "2026-04-20T17:58:17.113308Z"
+}

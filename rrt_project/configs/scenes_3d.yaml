@@ -1,0 +1,6 @@
+{
+  "scenes": [
+    {"scene_id": "3d_simple", "difficulty": "simple"},
+    {"scene_id": "3d_complex", "difficulty": "complex"}
+  ]
+}
