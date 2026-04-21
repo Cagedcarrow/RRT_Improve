@@ -1,0 +1,50 @@
+
+# 虚拟环境（不上传）
+.venv*/
+venv/
+env/
+.venv_rrt/
+.venv_rrt_clean/
+ENV/
+
+# Python 编译文件（不上传）
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyc
+
+# 测试缓存（不上传）
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# IDE 配置（不上传）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 环境变量（不上传）
+.env
+.env.local
+
+# 模型文件（如果很大，可选）
+*.pth
+*.pt
+*.bin
+*.h5
+
+# 临时文件（不上传）
+tmp/
+temp/
+*.tmp
+*.bak
+
+# 注意：以下文件会上传
+# - *.pdf （已移除，会正常上传）
+# - *.jpg, *.png 等图片（已移除，会正常上传）
+# - *.csv, *.xlsx 数据文件（已移除，会正常上传）
