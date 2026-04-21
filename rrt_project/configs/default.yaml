@@ -1,20 +1,65 @@
-{
-  "planner": {
-    "step_size": 0.08,
-    "max_iters": 900,
-    "goal_bias": 0.08,
-    "bridge_bias": 0.20,
-    "cuda_enabled": true,
-    "goal_tolerance": 0.09,
-    "rewire_radius": 0.22,
-    "bridge_num_samples": 220,
-    "bridge_delta": 0.05,
-    "bridge_cluster_eps": 0.10,
-    "bridge_cluster_min_pts": 3,
-    "alpha_schedule": [[0.0, 0.0], [0.3, 0.2], [0.6, 0.5], [1.0, 1.0]]
-  },
-  "benchmark": {
-    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    "timeout_sec": 4
-  }
-}
+planner:
+  step_size: 0.08
+  max_iters: 700
+  goal_bias: 0.08
+  bridge_bias: 0.20
+  cuda_enabled: true
+  goal_tolerance: 0.09
+  rewire_radius: 0.22
+  max_time_sec: 2.8
+  bridge_num_samples: 260
+  bridge_delta: 0.05
+  bridge_cluster_eps: 0.10
+  bridge_cluster_min_pts: 3
+  bridge_clustering: dbscan
+  cci_eta: 18.0
+  final_hard_validation: true
+  hard_validation_alpha: 1.0
+  obstacle_min_scale: 1.0
+  alpha_schedule:
+    - [0.0, 0.0]
+    - [0.3, 0.25]
+    - [0.6, 0.60]
+    - [1.0, 1.0]
+
+benchmark:
+  limit_per_minute: 40
+  timeout_sec: 3.0
+  seeds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+  ablations:
+    - baseline
+    - cci_only
+    - bridge_only
+    - cci_bridge
+  planners:
+    - rrt
+    - rrt_connect
+    - rrt_star
+    - cci_bridge_rrt
+
+visualization:
+  enable: true
+  save_tree_nodes: true
+  max_tree_nodes_to_draw: 1400
+  image_dpi: 140
+  collage_max_images: 48

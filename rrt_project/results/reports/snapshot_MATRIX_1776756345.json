@@ -1,0 +1,242 @@
+{
+  "planner_ablation_groups": {
+    "rrt::baseline": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 790.5868369925884,
+      "median_path_len": 1.7690331905006194,
+      "median_collision_checks": 462.0
+    },
+    "rrt::cci_only": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 847.564476003754,
+      "median_path_len": 1.7690331905006194,
+      "median_collision_checks": 462.0
+    },
+    "rrt::bridge_only": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 899.0278564961045,
+      "median_path_len": 1.7690331905006194,
+      "median_collision_checks": 462.0
+    },
+    "rrt::cci_bridge": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 855.2884210075717,
+      "median_path_len": 1.7690331905006194,
+      "median_collision_checks": 462.0
+    },
+    "rrt_connect::baseline": {
+      "runs": 60,
+      "success_rate": 0.7,
+      "median_time_ms": 817.7921145033906,
+      "median_path_len": 1.819503933829671,
+      "median_collision_checks": 499.0
+    },
+    "rrt_connect::cci_only": {
+      "runs": 59,
+      "success_rate": 0.6949152542372882,
+      "median_time_ms": 858.9038259960944,
+      "median_path_len": 1.8108535838574367,
+      "median_collision_checks": 489
+    },
+    "rrt_connect::bridge_only": {
+      "runs": 40,
+      "success_rate": 0.95,
+      "median_time_ms": 369.3834709993098,
+      "median_path_len": 1.7235939371828015,
+      "median_collision_checks": 205.0
+    },
+    "rrt_connect::cci_bridge": {
+      "runs": 40,
+      "success_rate": 0.95,
+      "median_time_ms": 345.3647255009855,
+      "median_path_len": 1.7235939371828015,
+      "median_collision_checks": 205.0
+    },
+    "rrt_star::baseline": {
+      "runs": 40,
+      "success_rate": 0.9,
+      "median_time_ms": 564.1227504966082,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 420.0
+    },
+    "rrt_star::cci_only": {
+      "runs": 40,
+      "success_rate": 0.9,
+      "median_time_ms": 580.0702125052339,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 420.0
+    },
+    "rrt_star::bridge_only": {
+      "runs": 40,
+      "success_rate": 0.9,
+      "median_time_ms": 608.3824975066818,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 420.0
+    },
+    "rrt_star::cci_bridge": {
+      "runs": 40,
+      "success_rate": 0.9,
+      "median_time_ms": 561.4577189990086,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 420.0
+    },
+    "cci_bridge_rrt::baseline": {
+      "runs": 40,
+      "success_rate": 0.9,
+      "median_time_ms": 623.9589555043494,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 420.0
+    },
+    "cci_bridge_rrt::cci_only": {
+      "runs": 40,
+      "success_rate": 1.0,
+      "median_time_ms": 189.7424394992413,
+      "median_path_len": 1.2218900563277804,
+      "median_collision_checks": 114.5
+    },
+    "cci_bridge_rrt::bridge_only": {
+      "runs": 40,
+      "success_rate": 0.85,
+      "median_time_ms": 557.4790029932046,
+      "median_path_len": 1.46291713431214,
+      "median_collision_checks": 420.0
+    },
+    "cci_bridge_rrt::cci_bridge": {
+      "runs": 40,
+      "success_rate": 1.0,
+      "median_time_ms": 172.32167000474874,
+      "median_path_len": 1.2218900563277804,
+      "median_collision_checks": 114.0
+    }
+  },
+  "planners": {
+    "rrt": {
+      "baseline": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 790.5868369925884,
+        "median_path_len": 1.7690331905006194,
+        "median_collision_checks": 462.0
+      },
+      "cci_only": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 847.564476003754,
+        "median_path_len": 1.7690331905006194,
+        "median_collision_checks": 462.0
+      },
+      "bridge_only": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 899.0278564961045,
+        "median_path_len": 1.7690331905006194,
+        "median_collision_checks": 462.0
+      },
+      "cci_bridge": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 855.2884210075717,
+        "median_path_len": 1.7690331905006194,
+        "median_collision_checks": 462.0
+      }
+    },
+    "rrt_connect": {
+      "baseline": {
+        "runs": 60,
+        "success_rate": 0.7,
+        "median_time_ms": 817.7921145033906,
+        "median_path_len": 1.819503933829671,
+        "median_collision_checks": 499.0
+      },
+      "cci_only": {
+        "runs": 59,
+        "success_rate": 0.6949152542372882,
+        "median_time_ms": 858.9038259960944,
+        "median_path_len": 1.8108535838574367,
+        "median_collision_checks": 489
+      },
+      "bridge_only": {
+        "runs": 40,
+        "success_rate": 0.95,
+        "median_time_ms": 369.3834709993098,
+        "median_path_len": 1.7235939371828015,
+        "median_collision_checks": 205.0
+      },
+      "cci_bridge": {
+        "runs": 40,
+        "success_rate": 0.95,
+        "median_time_ms": 345.3647255009855,
+        "median_path_len": 1.7235939371828015,
+        "median_collision_checks": 205.0
+      }
+    },
+    "rrt_star": {
+      "baseline": {
+        "runs": 40,
+        "success_rate": 0.9,
+        "median_time_ms": 564.1227504966082,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 420.0
+      },
+      "cci_only": {
+        "runs": 40,
+        "success_rate": 0.9,
+        "median_time_ms": 580.0702125052339,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 420.0
+      },
+      "bridge_only": {
+        "runs": 40,
+        "success_rate": 0.9,
+        "median_time_ms": 608.3824975066818,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 420.0
+      },
+      "cci_bridge": {
+        "runs": 40,
+        "success_rate": 0.9,
+        "median_time_ms": 561.4577189990086,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 420.0
+      }
+    },
+    "cci_bridge_rrt": {
+      "baseline": {
+        "runs": 40,
+        "success_rate": 0.9,
+        "median_time_ms": 623.9589555043494,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 420.0
+      },
+      "cci_only": {
+        "runs": 40,
+        "success_rate": 1.0,
+        "median_time_ms": 189.7424394992413,
+        "median_path_len": 1.2218900563277804,
+        "median_collision_checks": 114.5
+      },
+      "bridge_only": {
+        "runs": 40,
+        "success_rate": 0.85,
+        "median_time_ms": 557.4790029932046,
+        "median_path_len": 1.46291713431214,
+        "median_collision_checks": 420.0
+      },
+      "cci_bridge": {
+        "runs": 40,
+        "success_rate": 1.0,
+        "median_time_ms": 172.32167000474874,
+        "median_path_len": 1.2218900563277804,
+        "median_collision_checks": 114.0
+      }
+    }
+  },
+  "failure_counts": {
+    "timeout": 153,
+    "collision_stuck": 1
+  }
+}

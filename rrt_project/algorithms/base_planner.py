@@ -24,8 +24,14 @@ class PlannerConfig:
     bridge_delta: float = 0.05
     bridge_cluster_eps: float = 0.12
     bridge_cluster_min_pts: int = 3
+    bridge_clustering: str = "radius"
+    cci_eta: float = 18.0
     enable_cci: bool = True
     enable_bridge: bool = True
+    ablation_mode: str = "baseline"  # baseline | cci_only | bridge_only | cci_bridge
+    final_hard_validation: bool = True
+    hard_validation_alpha: float = 1.0
+    obstacle_min_scale: float = 1.0
 
 
 @dataclass
@@ -39,7 +45,7 @@ class PlannerResult:
     scene_id: str
     iters_used: int = 0
     goal_reached_iter: int = -1
-    meta: Dict[str, float] = field(default_factory=dict)
+    meta: Dict[str, Any] = field(default_factory=dict)
 
 
 class Sampler(ABC):
@@ -112,8 +118,82 @@ class BasePlanner(ABC):
             scene_state=scene,
             alpha=alpha,
             cuda_enabled=config.cuda_enabled,
+            obstacle_min_scale=config.obstacle_min_scale,
         )
         return not collided
+
+    def _hard_validate_path(
+        self,
+        path: Sequence[Sequence[float]],
+        scene: Any,
+        config: PlannerConfig,
+    ) -> tuple[bool, int]:
+        if len(path) < 2:
+            return True, -1
+        for idx in range(len(path) - 1):
+            hit = self.collision_backend.segment_collides(
+                p1=path[idx],
+                p2=path[idx + 1],
+                scene_state=scene,
+                alpha=config.hard_validation_alpha,
+                cuda_enabled=config.cuda_enabled,
+                obstacle_min_scale=1.0,
+            )
+            if hit:
+                return False, idx
+        return True, -1
+
+    def _hard_safe_path(
+        self,
+        path: Sequence[Sequence[float]],
+        scene: Any,
+        config: PlannerConfig,
+    ) -> tuple[List[List[float]], int]:
+        if len(path) < 2:
+            return [list(np.asarray(p, dtype=float)) for p in path], -1
+
+        safe: List[List[float]] = [list(np.asarray(path[0], dtype=float))]
+        for idx in range(len(path) - 1):
+            hit = self.collision_backend.segment_collides(
+                p1=path[idx],
+                p2=path[idx + 1],
+                scene_state=scene,
+                alpha=config.hard_validation_alpha,
+                cuda_enabled=config.cuda_enabled,
+                obstacle_min_scale=1.0,
+            )
+            if hit:
+                return safe, idx
+            safe.append(list(np.asarray(path[idx + 1], dtype=float)))
+        return safe, -1
+
+    def _enforce_hard_validation(
+        self,
+        success: bool,
+        path: Sequence[Sequence[float]],
+        scene: Any,
+        config: PlannerConfig,
+        meta: Dict[str, Any],
+    ) -> tuple[bool, List[List[float]]]:
+        path_out = [list(np.asarray(p, dtype=float)) for p in path]
+        meta["planned_success"] = bool(success)
+        if not config.final_hard_validation:
+            meta["hard_validation_passed"] = bool(success)
+            meta["hard_validation_collision_idx"] = -1.0
+            meta["hard_validated_path"] = path_out
+            return success, path_out
+
+        safe_path, collision_idx = self._hard_safe_path(path=path, scene=scene, config=config)
+        passed = collision_idx < 0
+        path_out = safe_path
+
+        meta["hard_validation_passed"] = bool(passed)
+        meta["hard_validation_collision_idx"] = float(collision_idx)
+        meta["hard_validated_path"] = path_out
+
+        if success and not passed:
+            meta["hard_validation_failed"] = True
+        return bool(success and passed), path_out
 
     def _finalize(
         self,
@@ -124,7 +204,7 @@ class BasePlanner(ABC):
         config: PlannerConfig,
         iters_used: int,
         goal_iter: int,
-        meta: Optional[Dict[str, float]] = None,
+        meta: Optional[Dict[str, Any]] = None,
     ) -> PlannerResult:
         elapsed_ms = (perf_counter() - start_t) * 1000.0
         return PlannerResult(

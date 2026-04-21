@@ -1,23 +1,21 @@
 {
   "completed_stages": [
-    "M1",
-    "M2",
-    "M3",
-    "M4",
-    "M5_R1",
-    "M5_R2"
+    "MATRIX",
+    "TUNE_R1",
+    "TUNE_R2"
   ],
   "tuning_history": [
     {
       "round": 1,
       "changes": {
-        "no_change": 1.0
+        "bridge_bias": 0.25,
+        "step_size": 0.07200000000000001
       },
       "config_after": {
-        "step_size": 0.08,
-        "max_iters": 900,
+        "step_size": 0.07200000000000001,
+        "max_iters": 700,
         "goal_bias": 0.08,
-        "bridge_bias": 0.2,
+        "bridge_bias": 0.25,
         "cuda_enabled": true,
         "alpha_schedule": [
           [
@@ -26,11 +24,11 @@
           ],
           [
             0.3,
-            0.2
+            0.25
           ],
           [
             0.6,
-            0.5
+            0.6
           ],
           [
             1.0,
@@ -40,13 +38,16 @@
         "seed": 0,
         "goal_tolerance": 0.09,
         "rewire_radius": 0.22,
-        "max_time_sec": 4.0,
-        "bridge_num_samples": 220,
+        "max_time_sec": 2.8,
+        "bridge_num_samples": 260,
         "bridge_delta": 0.05,
         "bridge_cluster_eps": 0.1,
         "bridge_cluster_min_pts": 3,
+        "bridge_clustering": "dbscan",
+        "cci_eta": 18.0,
         "enable_cci": true,
-        "enable_bridge": true
+        "enable_bridge": true,
+        "ablation_mode": "baseline"
       }
     },
     {
@@ -55,10 +56,10 @@
         "no_change": 1.0
       },
       "config_after": {
-        "step_size": 0.08,
-        "max_iters": 900,
+        "step_size": 0.07200000000000001,
+        "max_iters": 700,
         "goal_bias": 0.08,
-        "bridge_bias": 0.2,
+        "bridge_bias": 0.25,
         "cuda_enabled": true,
         "alpha_schedule": [
           [
@@ -67,11 +68,11 @@
           ],
           [
             0.3,
-            0.2
+            0.25
           ],
           [
             0.6,
-            0.5
+            0.6
           ],
           [
             1.0,
@@ -81,21 +82,24 @@
         "seed": 0,
         "goal_tolerance": 0.09,
         "rewire_radius": 0.22,
-        "max_time_sec": 4.0,
-        "bridge_num_samples": 220,
+        "max_time_sec": 2.8,
+        "bridge_num_samples": 260,
         "bridge_delta": 0.05,
         "bridge_cluster_eps": 0.1,
         "bridge_cluster_min_pts": 3,
+        "bridge_clustering": "dbscan",
+        "cci_eta": 18.0,
         "enable_cci": true,
-        "enable_bridge": true
+        "enable_bridge": true,
+        "ablation_mode": "baseline"
       }
     }
   ],
   "current_config": {
-    "step_size": 0.08,
-    "max_iters": 900,
+    "step_size": 0.07200000000000001,
+    "max_iters": 700,
     "goal_bias": 0.08,
-    "bridge_bias": 0.2,
+    "bridge_bias": 0.25,
     "cuda_enabled": true,
     "alpha_schedule": [
       [
@@ -104,11 +108,11 @@
       ],
       [
         0.3,
-        0.2
+        0.25
       ],
       [
         0.6,
-        0.5
+        0.6
       ],
       [
         1.0,
@@ -118,13 +122,16 @@
     "seed": 0,
     "goal_tolerance": 0.09,
     "rewire_radius": 0.22,
-    "max_time_sec": 4.0,
-    "bridge_num_samples": 220,
+    "max_time_sec": 2.8,
+    "bridge_num_samples": 260,
     "bridge_delta": 0.05,
     "bridge_cluster_eps": 0.1,
     "bridge_cluster_min_pts": 3,
+    "bridge_clustering": "dbscan",
+    "cci_eta": 18.0,
     "enable_cci": true,
-    "enable_bridge": true
+    "enable_bridge": true,
+    "ablation_mode": "baseline"
   },
-  "last_updated": "2026-04-20T17:58:17.113308Z"
+  "last_updated": "2026-04-21T07:43:27.490000Z"
 }

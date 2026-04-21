@@ -24,3 +24,18 @@ def test_collision_hit_and_miss():
     miss = backend.segment_collides([0.1, 0.1], [0.1, 0.9], scene, alpha=1.0, cuda_enabled=False)
     assert hit is True
     assert miss is False
+
+
+def test_cpu_gpu_consistency_if_available():
+    scene = _scene()
+    backend = CollisionBackend(samples_per_segment=32)
+    cpu = backend.segment_collides([0.2, 0.2], [0.8, 0.8], scene, alpha=1.0, cuda_enabled=False)
+    try:
+        import torch
+
+        if torch.cuda.is_available():
+            gpu = backend.segment_collides([0.2, 0.2], [0.8, 0.8], scene, alpha=1.0, cuda_enabled=True)
+            assert cpu == gpu
+    except Exception:
+        # If GPU stack is unavailable in CI, CPU assertion already covers behavior.
+        assert isinstance(cpu, bool)

@@ -1,0 +1,56 @@
+# Virtual env and caches
+.venv*/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE and temp
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.tmp
+*.bak
+
+# Secrets
+.env
+.env.local
+
+# Large model binaries
+*.pth
+*.pt
+*.bin
+*.h5
+
+# 图片文件（不上传）
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.ico
+*.svg
+
+# 其他媒体文件（可选）
+*.mp4
+*.avi
+*.mov
+*.mp3
+*.wav
+
+# Keep experiment assets versioned for GitHub showcase:
+# - images/**
+# - results/summary.json
+# - results/reports/*.md
+# - selected csv files
+# If needed, add ignores below selectively.

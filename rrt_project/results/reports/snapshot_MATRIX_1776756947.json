@@ -1,0 +1,243 @@
+{
+  "planner_ablation_groups": {
+    "rrt::baseline": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 302.48557499726303,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::cci_only": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 343.0446665006457,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::bridge_only": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 328.6062819970539,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::cci_bridge": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 357.71261699846946,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt_connect::baseline": {
+      "runs": 79,
+      "success_rate": 0.7721518987341772,
+      "median_time_ms": 484.73361699143425,
+      "median_path_len": 1.8942545427154576,
+      "median_collision_checks": 301
+    },
+    "rrt_connect::cci_only": {
+      "runs": 60,
+      "success_rate": 0.7,
+      "median_time_ms": 888.1434045033529,
+      "median_path_len": 1.819503933829671,
+      "median_collision_checks": 499.0
+    },
+    "rrt_connect::bridge_only": {
+      "runs": 60,
+      "success_rate": 0.7,
+      "median_time_ms": 848.3163409982808,
+      "median_path_len": 1.819503933829671,
+      "median_collision_checks": 499.0
+    },
+    "rrt_connect::cci_bridge": {
+      "runs": 60,
+      "success_rate": 0.7,
+      "median_time_ms": 839.6232249942841,
+      "median_path_len": 1.819503933829671,
+      "median_collision_checks": 499.0
+    },
+    "rrt_star::baseline": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 1478.9912035048474,
+      "median_path_len": 1.4786527590565375,
+      "median_collision_checks": 837.0
+    },
+    "rrt_star::cci_only": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 1580.7445159953204,
+      "median_path_len": 1.4786527590565375,
+      "median_collision_checks": 837.0
+    },
+    "rrt_star::bridge_only": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 1535.558100498747,
+      "median_path_len": 1.4786527590565375,
+      "median_collision_checks": 837.0
+    },
+    "rrt_star::cci_bridge": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 1582.852928993816,
+      "median_path_len": 1.4786527590565375,
+      "median_collision_checks": 837.0
+    },
+    "cci_bridge_rrt::baseline": {
+      "runs": 60,
+      "success_rate": 0.6333333333333333,
+      "median_time_ms": 1561.646161499084,
+      "median_path_len": 1.4786527590565375,
+      "median_collision_checks": 837.0
+    },
+    "cci_bridge_rrt::cci_only": {
+      "runs": 60,
+      "success_rate": 1.0,
+      "median_time_ms": 220.04922699852614,
+      "median_path_len": 1.2575239808222867,
+      "median_collision_checks": 138.0
+    },
+    "cci_bridge_rrt::bridge_only": {
+      "runs": 60,
+      "success_rate": 0.6,
+      "median_time_ms": 1582.1125170041341,
+      "median_path_len": 1.4728944636722507,
+      "median_collision_checks": 929.0
+    },
+    "cci_bridge_rrt::cci_bridge": {
+      "runs": 60,
+      "success_rate": 1.0,
+      "median_time_ms": 216.93385599792236,
+      "median_path_len": 1.2575239808222867,
+      "median_collision_checks": 133.0
+    }
+  },
+  "planners": {
+    "rrt": {
+      "baseline": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 302.48557499726303,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "cci_only": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 343.0446665006457,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "bridge_only": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 328.6062819970539,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "cci_bridge": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 357.71261699846946,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      }
+    },
+    "rrt_connect": {
+      "baseline": {
+        "runs": 79,
+        "success_rate": 0.7721518987341772,
+        "median_time_ms": 484.73361699143425,
+        "median_path_len": 1.8942545427154576,
+        "median_collision_checks": 301
+      },
+      "cci_only": {
+        "runs": 60,
+        "success_rate": 0.7,
+        "median_time_ms": 888.1434045033529,
+        "median_path_len": 1.819503933829671,
+        "median_collision_checks": 499.0
+      },
+      "bridge_only": {
+        "runs": 60,
+        "success_rate": 0.7,
+        "median_time_ms": 848.3163409982808,
+        "median_path_len": 1.819503933829671,
+        "median_collision_checks": 499.0
+      },
+      "cci_bridge": {
+        "runs": 60,
+        "success_rate": 0.7,
+        "median_time_ms": 839.6232249942841,
+        "median_path_len": 1.819503933829671,
+        "median_collision_checks": 499.0
+      }
+    },
+    "rrt_star": {
+      "baseline": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 1478.9912035048474,
+        "median_path_len": 1.4786527590565375,
+        "median_collision_checks": 837.0
+      },
+      "cci_only": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 1580.7445159953204,
+        "median_path_len": 1.4786527590565375,
+        "median_collision_checks": 837.0
+      },
+      "bridge_only": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 1535.558100498747,
+        "median_path_len": 1.4786527590565375,
+        "median_collision_checks": 837.0
+      },
+      "cci_bridge": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 1582.852928993816,
+        "median_path_len": 1.4786527590565375,
+        "median_collision_checks": 837.0
+      }
+    },
+    "cci_bridge_rrt": {
+      "baseline": {
+        "runs": 60,
+        "success_rate": 0.6333333333333333,
+        "median_time_ms": 1561.646161499084,
+        "median_path_len": 1.4786527590565375,
+        "median_collision_checks": 837.0
+      },
+      "cci_only": {
+        "runs": 60,
+        "success_rate": 1.0,
+        "median_time_ms": 220.04922699852614,
+        "median_path_len": 1.2575239808222867,
+        "median_collision_checks": 138.0
+      },
+      "bridge_only": {
+        "runs": 60,
+        "success_rate": 0.6,
+        "median_time_ms": 1582.1125170041341,
+        "median_path_len": 1.4728944636722507,
+        "median_collision_checks": 929.0
+      },
+      "cci_bridge": {
+        "runs": 60,
+        "success_rate": 1.0,
+        "median_time_ms": 216.93385599792236,
+        "median_path_len": 1.2575239808222867,
+        "median_collision_checks": 133.0
+      }
+    }
+  },
+  "failure_counts": {
+    "timeout": 288,
+    "collision_stuck": 4,
+    "unstable": 2
+  }
+}

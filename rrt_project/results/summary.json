@@ -1,48 +1,257 @@
 {
+  "planner_ablation_groups": {
+    "rrt::baseline": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 302.48557499726303,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::cci_only": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 343.0446665006457,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::bridge_only": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 328.6062819970539,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt::cci_bridge": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 357.71261699846946,
+      "median_path_len": 1.8590456970284404,
+      "median_collision_checks": 219.0
+    },
+    "rrt_connect::baseline": {
+      "runs": 80,
+      "success_rate": 0.775,
+      "median_time_ms": 360.7338024958153,
+      "median_path_len": 1.8853256599944834,
+      "median_collision_checks": 205.0
+    },
+    "rrt_connect::cci_only": {
+      "runs": 80,
+      "success_rate": 0.775,
+      "median_time_ms": 369.89135450858157,
+      "median_path_len": 1.8853256599944834,
+      "median_collision_checks": 205.0
+    },
+    "rrt_connect::bridge_only": {
+      "runs": 80,
+      "success_rate": 0.775,
+      "median_time_ms": 369.3834709993098,
+      "median_path_len": 1.8853256599944834,
+      "median_collision_checks": 205.0
+    },
+    "rrt_connect::cci_bridge": {
+      "runs": 80,
+      "success_rate": 0.775,
+      "median_time_ms": 345.3647255009855,
+      "median_path_len": 1.8853256599944834,
+      "median_collision_checks": 205.0
+    },
+    "rrt_star::baseline": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 669.1074029949959,
+      "median_path_len": 1.6057867431123647,
+      "median_collision_checks": 429.0
+    },
+    "rrt_star::cci_only": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 657.6245075048064,
+      "median_path_len": 1.6057867431123647,
+      "median_collision_checks": 429.0
+    },
+    "rrt_star::bridge_only": {
+      "runs": 80,
+      "success_rate": 0.7125,
+      "median_time_ms": 1078.9682714967057,
+      "median_path_len": 1.603174249200283,
+      "median_collision_checks": 429.0
+    },
+    "rrt_star::cci_bridge": {
+      "runs": 80,
+      "success_rate": 0.7125,
+      "median_time_ms": 1097.86606200214,
+      "median_path_len": 1.603174249200283,
+      "median_collision_checks": 429.0
+    },
+    "cci_bridge_rrt::baseline": {
+      "runs": 80,
+      "success_rate": 0.725,
+      "median_time_ms": 1147.7915214927634,
+      "median_path_len": 1.6057867431123647,
+      "median_collision_checks": 429.0
+    },
+    "cci_bridge_rrt::cci_only": {
+      "runs": 80,
+      "success_rate": 1.0,
+      "median_time_ms": 294.25224399892613,
+      "median_path_len": 1.4233514372010199,
+      "median_collision_checks": 149.0
+    },
+    "cci_bridge_rrt::bridge_only": {
+      "runs": 80,
+      "success_rate": 0.7,
+      "median_time_ms": 1202.6487320035812,
+      "median_path_len": 1.6057867431123647,
+      "median_collision_checks": 507.0
+    },
+    "cci_bridge_rrt::cci_bridge": {
+      "runs": 160,
+      "success_rate": 0.99375,
+      "median_time_ms": 459.8054040034185,
+      "median_path_len": 1.4904961698749575,
+      "median_collision_checks": 155.5
+    }
+  },
   "planners": {
     "rrt": {
-      "runs": 60,
-      "success_rate": 0.8333333333333334,
-      "median_time_ms": 131.24897550733294,
-      "median_path_len": 1.8934081649676056,
-      "median_collision_checks": 110.0
+      "baseline": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 302.48557499726303,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "cci_only": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 343.0446665006457,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "bridge_only": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 328.6062819970539,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      },
+      "cci_bridge": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 357.71261699846946,
+        "median_path_len": 1.8590456970284404,
+        "median_collision_checks": 219.0
+      }
     },
     "rrt_connect": {
-      "runs": 60,
-      "success_rate": 0.9166666666666666,
-      "median_time_ms": 102.87985900504282,
-      "median_path_len": 1.9027522560152232,
-      "median_collision_checks": 82.0
+      "baseline": {
+        "runs": 80,
+        "success_rate": 0.775,
+        "median_time_ms": 360.7338024958153,
+        "median_path_len": 1.8853256599944834,
+        "median_collision_checks": 205.0
+      },
+      "cci_only": {
+        "runs": 80,
+        "success_rate": 0.775,
+        "median_time_ms": 369.89135450858157,
+        "median_path_len": 1.8853256599944834,
+        "median_collision_checks": 205.0
+      },
+      "bridge_only": {
+        "runs": 80,
+        "success_rate": 0.775,
+        "median_time_ms": 369.3834709993098,
+        "median_path_len": 1.8853256599944834,
+        "median_collision_checks": 205.0
+      },
+      "cci_bridge": {
+        "runs": 80,
+        "success_rate": 0.775,
+        "median_time_ms": 345.3647255009855,
+        "median_path_len": 1.8853256599944834,
+        "median_collision_checks": 205.0
+      }
     },
     "rrt_star": {
-      "runs": 60,
-      "success_rate": 0.8333333333333334,
-      "median_time_ms": 229.03210350341396,
-      "median_path_len": 1.5972400503125739,
-      "median_collision_checks": 225.5
+      "baseline": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 669.1074029949959,
+        "median_path_len": 1.6057867431123647,
+        "median_collision_checks": 429.0
+      },
+      "cci_only": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 657.6245075048064,
+        "median_path_len": 1.6057867431123647,
+        "median_collision_checks": 429.0
+      },
+      "bridge_only": {
+        "runs": 80,
+        "success_rate": 0.7125,
+        "median_time_ms": 1078.9682714967057,
+        "median_path_len": 1.603174249200283,
+        "median_collision_checks": 429.0
+      },
+      "cci_bridge": {
+        "runs": 80,
+        "success_rate": 0.7125,
+        "median_time_ms": 1097.86606200214,
+        "median_path_len": 1.603174249200283,
+        "median_collision_checks": 429.0
+      }
     },
     "cci_bridge_rrt": {
-      "runs": 120,
-      "success_rate": 1.0,
-      "median_time_ms": 234.52619450108614,
-      "median_path_len": 1.3890162343221326,
-      "median_collision_checks": 146.0
+      "baseline": {
+        "runs": 80,
+        "success_rate": 0.725,
+        "median_time_ms": 1147.7915214927634,
+        "median_path_len": 1.6057867431123647,
+        "median_collision_checks": 429.0
+      },
+      "cci_only": {
+        "runs": 80,
+        "success_rate": 1.0,
+        "median_time_ms": 294.25224399892613,
+        "median_path_len": 1.4233514372010199,
+        "median_collision_checks": 149.0
+      },
+      "bridge_only": {
+        "runs": 80,
+        "success_rate": 0.7,
+        "median_time_ms": 1202.6487320035812,
+        "median_path_len": 1.6057867431123647,
+        "median_collision_checks": 507.0
+      },
+      "cci_bridge": {
+        "runs": 160,
+        "success_rate": 0.99375,
+        "median_time_ms": 459.8054040034185,
+        "median_path_len": 1.4904961698749575,
+        "median_collision_checks": 155.5
+      }
     }
   },
   "failure_counts": {
-    "timeout": 25
+    "timeout": 288,
+    "collision_stuck": 6,
+    "unstable": 3
   },
   "tuning_history": [
     {
       "round": 1,
       "changes": {
-        "no_change": 1.0
+        "bridge_bias": 0.25,
+        "step_size": 0.07200000000000001
       },
       "config_after": {
-        "step_size": 0.08,
-        "max_iters": 900,
+        "step_size": 0.07200000000000001,
+        "max_iters": 700,
         "goal_bias": 0.08,
-        "bridge_bias": 0.2,
+        "bridge_bias": 0.25,
         "cuda_enabled": true,
         "alpha_schedule": [
           [
@@ -51,11 +260,11 @@
           ],
           [
             0.3,
-            0.2
+            0.25
           ],
           [
             0.6,
-            0.5
+            0.6
           ],
           [
             1.0,
@@ -65,13 +274,16 @@
         "seed": 0,
         "goal_tolerance": 0.09,
         "rewire_radius": 0.22,
-        "max_time_sec": 4.0,
-        "bridge_num_samples": 220,
+        "max_time_sec": 2.8,
+        "bridge_num_samples": 260,
         "bridge_delta": 0.05,
         "bridge_cluster_eps": 0.1,
         "bridge_cluster_min_pts": 3,
+        "bridge_clustering": "dbscan",
+        "cci_eta": 18.0,
         "enable_cci": true,
-        "enable_bridge": true
+        "enable_bridge": true,
+        "ablation_mode": "baseline"
       }
     },
     {
@@ -80,10 +292,10 @@
         "no_change": 1.0
       },
       "config_after": {
-        "step_size": 0.08,
-        "max_iters": 900,
+        "step_size": 0.07200000000000001,
+        "max_iters": 700,
         "goal_bias": 0.08,
-        "bridge_bias": 0.2,
+        "bridge_bias": 0.25,
         "cuda_enabled": true,
         "alpha_schedule": [
           [
@@ -92,11 +304,11 @@
           ],
           [
             0.3,
-            0.2
+            0.25
           ],
           [
             0.6,
-            0.5
+            0.6
           ],
           [
             1.0,
@@ -106,23 +318,60 @@
         "seed": 0,
         "goal_tolerance": 0.09,
         "rewire_radius": 0.22,
-        "max_time_sec": 4.0,
-        "bridge_num_samples": 220,
+        "max_time_sec": 2.8,
+        "bridge_num_samples": 260,
         "bridge_delta": 0.05,
         "bridge_cluster_eps": 0.1,
         "bridge_cluster_min_pts": 3,
+        "bridge_clustering": "dbscan",
+        "cci_eta": 18.0,
         "enable_cci": true,
-        "enable_bridge": true
+        "enable_bridge": true,
+        "ablation_mode": "baseline"
       }
     }
   ],
   "completed_stages": [
-    "M1",
-    "M2",
-    "M3",
-    "M4",
-    "M5_R1",
-    "M5_R2"
+    "MATRIX",
+    "TUNE_R1",
+    "TUNE_R2"
   ],
-  "rate_limit_target_per_min": 40
+  "rate_limit_target_per_min": 40,
+  "matrix": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "ablations": [
+      "baseline",
+      "cci_only",
+      "bridge_only",
+      "cci_bridge"
+    ],
+    "planners": [
+      "rrt",
+      "rrt_connect",
+      "rrt_star",
+      "cci_bridge_rrt"
+    ],
+    "scene_count": 4
+  }
 }

@@ -30,6 +30,7 @@ class CollisionBackend:
         scene_state,
         alpha: float = 1.0,
         cuda_enabled: bool = True,
+        obstacle_min_scale: float = 1.0,
     ) -> torch.BoolTensor:
         dev = self._device(cuda_enabled)
         seg = torch.as_tensor(segments, dtype=torch.float32, device=dev)
@@ -49,8 +50,10 @@ class CollisionBackend:
         out_of_bounds = (pts < lo).any(dim=-1) | (pts > hi).any(dim=-1)
         collided = out_of_bounds.any(dim=1)
 
-        min_scale = 0.25
-        scale = min_scale + (1.0 - min_scale) * float(np.clip(alpha, 0.0, 1.0))
+        # Hard-obstacle mode: no alpha-based obstacle scaling.
+        _ = alpha
+        _ = obstacle_min_scale
+        scale = 1.0
 
         for obs in scene_state.obstacles:
             c = torch.as_tensor(obs.center, dtype=torch.float32, device=dev)
@@ -72,11 +75,13 @@ class CollisionBackend:
         scene_state,
         alpha: float = 1.0,
         cuda_enabled: bool = True,
+        obstacle_min_scale: float = 1.0,
     ) -> bool:
         hit = self.batch_segment_check(
             segments=np.asarray([[p1, p2]], dtype=np.float32),
             scene_state=scene_state,
             alpha=alpha,
             cuda_enabled=cuda_enabled,
+            obstacle_min_scale=obstacle_min_scale,
         )
         return bool(hit.detach().cpu().numpy()[0])

@@ -32,6 +32,7 @@ class RRTPlanner(BasePlanner):
         parents = [-1]
         goal_iter = -1
         success = False
+        sample_counts = {"goal": 0, "bridge": 0, "uniform": 0}
 
         for i in range(config.max_iters):
             if perf_counter() - start_t > config.max_time_sec:
@@ -44,6 +45,7 @@ class RRTPlanner(BasePlanner):
                 "bridge_bias": 0.0,
                 "alpha": 1.0,
                 "bridge_sampler": None,
+                "sample_source_counts": sample_counts,
             }
             q_rand = sampler.sample(state)
             near_idx = self._nearest_index(nodes, q_rand)
@@ -72,6 +74,26 @@ class RRTPlanner(BasePlanner):
             idx = self._nearest_index(nodes, goal_arr)
             path = self._reconstruct_path(nodes, parents, idx)
 
+        total_samples = max(1, sum(sample_counts.values()))
+        meta = {
+            "alpha_final": 1.0,
+            "bridge_usage_ratio": 0.0,
+            "sample_source_counts": sample_counts,
+            "alpha_trace": [1.0],
+            "alpha_trace_stats": {"alpha_min": 1.0, "alpha_mean": 1.0, "alpha_max": 1.0},
+            "bridge_candidate_stats": {},
+            "tree_nodes": np.asarray(nodes, dtype=np.float64).tolist(),
+            "tree_parents": [int(x) for x in parents],
+            "sample_goal_ratio": float(sample_counts["goal"] / total_samples),
+        }
+        success, path = self._enforce_hard_validation(
+            success=success,
+            path=path,
+            scene=scene,
+            config=config,
+            meta=meta,
+        )
+
         return self._finalize(
             success=success,
             path=path,
@@ -80,5 +102,5 @@ class RRTPlanner(BasePlanner):
             config=config,
             iters_used=i + 1,
             goal_iter=goal_iter,
-            meta={"alpha_final": 1.0, "bridge_usage_ratio": 0.0},
+            meta=meta,
         )

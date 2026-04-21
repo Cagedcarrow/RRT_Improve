@@ -38,6 +38,7 @@ class RRTConnectPlanner(BasePlanner):
         goal_iter = -1
         meet_a = -1
         meet_b = -1
+        sample_counts = {"goal": 0, "bridge": 0, "uniform": 0}
 
         for i in range(config.max_iters):
             if perf_counter() - start_t > config.max_time_sec:
@@ -50,6 +51,7 @@ class RRTConnectPlanner(BasePlanner):
                 "bridge_bias": 0.0,
                 "alpha": 1.0,
                 "bridge_sampler": None,
+                "sample_source_counts": sample_counts,
             }
             q_rand = sampler.sample(state)
             ok, new_idx = self._extend(a_nodes, a_par, q_rand, scene, config)
@@ -86,6 +88,27 @@ class RRTConnectPlanner(BasePlanner):
         else:
             path = self._reconstruct_path(a_nodes, a_par, self._nearest_index(a_nodes, np.asarray(goal, dtype=np.float64)))
 
+        merged_nodes = np.asarray(a_nodes + b_nodes, dtype=np.float64).tolist()
+        offset = len(a_nodes)
+        merged_parents = [int(x) for x in a_par] + [int(x + offset) if x >= 0 else -1 for x in b_par]
+        meta = {
+            "alpha_final": 1.0,
+            "bridge_usage_ratio": 0.0,
+            "sample_source_counts": sample_counts,
+            "alpha_trace": [1.0],
+            "alpha_trace_stats": {"alpha_min": 1.0, "alpha_mean": 1.0, "alpha_max": 1.0},
+            "bridge_candidate_stats": {},
+            "tree_nodes": merged_nodes,
+            "tree_parents": merged_parents,
+        }
+        success, path = self._enforce_hard_validation(
+            success=success,
+            path=path,
+            scene=scene,
+            config=config,
+            meta=meta,
+        )
+
         return self._finalize(
             success=success,
             path=path,
@@ -94,5 +117,5 @@ class RRTConnectPlanner(BasePlanner):
             config=config,
             iters_used=i + 1,
             goal_iter=goal_iter,
-            meta={"alpha_final": 1.0, "bridge_usage_ratio": 0.0},
+            meta=meta,
         )
